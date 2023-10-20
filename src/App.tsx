@@ -1,55 +1,48 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import styled from '@emotion/styled';
+import { Button } from 'components/Button';
+import { Label } from 'components/Label';
 
 const Container = styled.div`
-	text-align: center;
-`;
-
-const Header = styled.header`
-	background-color: #282c34;
-	min-height: 100vh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
 `;
 
-const AppLogo = styled.img`
-	height: 40vmin;
-	pointer-events: none;
-
-	@media {
-		animation: App-logo-spin infinite 20s linear;
-	}
-
-	@keyframes App-logo-spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
+const Title = styled.h1`
+	margin-bottom: 32px;
 `;
 
-const AppLink = styled.a`
-	color: #61dafb;
+const Contents = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
+
 
 function App() {
+	// useState(데이터 초기값)
+	// counter : 데이터 초기값이 들어갈 변수, setCounter : 데이터를 수정할 수 있는 set 함수
+	const [counter, setCounter] = useState(0);
+
+	const sub = () => {
+		setCounter(counter - 1);
+	}
+
+	const add = () => {
+		setCounter(counter + 1);
+	}
+
 	return (
 		<Container>
-			<Header>
-				<AppLogo src={logo} alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<AppLink href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-					Learn React
-				</AppLink>
-			</Header>
+			<Title>Counter App</Title>
+			<Contents>
+				<Button text="-" onClick={sub} />
+				<Label data={counter} />
+				<Button text="+" onClick={add} />
+			</Contents>
 		</Container>
 	);
 }
