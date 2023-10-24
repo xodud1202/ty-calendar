@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 const Container = styled.button`
 	border: 0;
 	color: #FFFFFF;
-	background-color: #ff5722;
+	background-color: ${(props) => props.color};
 	cursor: pointer;
 	padding: 8px 16px;
 	border-radius: 4px;
 	
 	&:hover {
-		//background-color: #ff5722;
+		//background-color: ${(props) => props.color};		// 이미 기본 background-color 동일 존재. 주석 처리
 		opacity: 0.8;
 	}
 	
@@ -20,13 +20,10 @@ const Container = styled.button`
 
 interface Props {
 	readonly text: string;
-	readonly onClick: () => void;
+	readonly color?: string;
+	readonly onClick?: () => void;
 }
 
-// Props 데이터 전달 받아 사용 하는 방법 2가지. 후자의 방법을 많이 사용.
-// export const Button = (props: Props) => {
-// 	return <Container onClick={props.onClick}>{props.label}</Container>;
-// }
-export const Button = ({text, onClick}: Props) => {
-	return <Container onClick={onClick}>{text}</Container>;
+export const Button = ({text, color="#ff5722", onClick}: Props) => {
+	return <Container color={color} onClick={onClick}>{text}</Container>;
 }
