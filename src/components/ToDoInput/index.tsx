@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import {Title} from "components/Title";
 import {TextInput} from "components/TextInput";
 import {Button} from "components/Button";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
+import {ToDoListContext} from "contexts/ToDoList";
 
 const Container = styled.div`
 	position: absolute;
@@ -41,11 +42,8 @@ const InputContainer = styled.div`
 	justify-content: center;
 `;
 
-interface Props {
-	readonly onAdd: (toDo: string) => void;
-}
-
-export const  ToDoInput = ({onAdd}: Props) => {
+export const  ToDoInput = () => {
+	const {onAdd} = useContext(ToDoListContext);
 	const [toDo, setToDo] = useState('');
 
 	const onAddToDo = () => {
