@@ -4,6 +4,8 @@ import {TextInput} from "components/TextInput";
 import {Button} from "components/Button";
 import React, {useContext, useState} from "react";
 import {ToDoListContext} from "contexts/ToDoList";
+import {useNavigate} from "react-router-dom";
+import {ShowInputButton} from "../../components/ShowInputButton";
 
 const Container = styled.div`
 	position: absolute;
@@ -22,7 +24,7 @@ const BackGround = styled.div`
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: rgb(0 0 0 / 75%);
+	//background-color: rgb(0 0 0 / 75%);
 `;
 
 const Contents = styled.div`
@@ -43,6 +45,7 @@ const InputContainer = styled.div`
 `;
 
 export const  ToDoInput = () => {
+	const navigate = useNavigate();
 	const {onAdd} = useContext(ToDoListContext);
 	const [toDo, setToDo] = useState('');
 
@@ -50,6 +53,7 @@ export const  ToDoInput = () => {
 		if(toDo === '') return;
 		onAdd(toDo);
 		setToDo("");
+		navigate("/");
 	}
 
 	return (
@@ -62,6 +66,7 @@ export const  ToDoInput = () => {
 					<Button text={"추가"} color={"#304FFE"} onClick={onAddToDo}/>
 				</InputContainer>
 			</Contents>
+			<ShowInputButton showToDoInput={true} onClick={() => navigate("/")} />
 		</Container>
 	)
 }

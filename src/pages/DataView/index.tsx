@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import {Title} from "components/Title";
 import {ToDoList} from "components/ToDoList";
+import {ShowInputButton} from "../../components/ShowInputButton";
+import {useNavigate} from "react-router-dom";
 
 const Container = styled.div`
 	display: flex;
@@ -13,10 +15,12 @@ const Container = styled.div`
 `;
 
 export const DataView = () => {
+	const navigate = useNavigate();
 	return (
 		<Container>
 			<Title label="할 일 목록"/>
 			<ToDoList />
+			<ShowInputButton showToDoInput={false} onClick={() => navigate("/add")} />
 		</Container>
 	)
 }

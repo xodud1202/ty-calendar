@@ -8,10 +8,14 @@ interface Context {
 
 const ToDoListContext = createContext<Context>({
 	toDoList: [],
-	/* eslint-disable @typescript-eslint/no-empty-function */
-	onAdd: (): void => {},
-	onDelete: (): void => {},
-	/* eslint-enable @typescript-eslint/no-empty-function */
+	// 아래 never 함수를 설정한것은 Provider로 감싸지지 않은 컨포넌트에서
+	// createContext를 통해 해당 함수를 호출하면 여기서 정의된 함수가 호출된다.
+	onAdd: (toDo: string): never => {
+		throw new Error(`onAdd function not implemented. odAdd(${toDo})`);
+	},
+	onDelete: (toDo: string): never => {
+		throw new Error(`onDelete function not implemented. onDelete(${toDo})`);
+	},
 });
 
 interface Props {
