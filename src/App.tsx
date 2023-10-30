@@ -1,38 +1,33 @@
 import styled from '@emotion/styled';
-import {Route, Routes} from 'react-router-dom';
-import {DataView} from "pages/DataView";
-import {ToDoListContextProvider} from "contexts/ToDoList";
-import {ToDoInput} from "./pages/ToDoInput";
-
 
 const Container = styled.div`
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	background-color: #eeeeee;
+	overflow: scroll;
 `;
 
-const NotFound = styled.div`
+const Header = styled.div`
+	background-color: white;
+	padding: 20px;
+	width: calc(100% - 40px);
+	margin-bottom: 20px;
+`;
+
+const Title = styled.div`
+	font-size: 1.2rem;
+	font-weight: bold;
 	text-align: center;
 `;
 
 function App() {
 	return (
 		<Container>
-			<ToDoListContextProvider>
-				<Routes>
-					<Route path={"/"} element={<DataView />} />
-					<Route path={"/add"} element={<ToDoInput />} />
-					<Route path={"*"} element={
-						<NotFound>
-							404<br/>NOT FOUND
-						</NotFound>
-					}/>
-				</Routes>
-
-			</ToDoListContextProvider>
+			<Header>
+				<Title>블로그 포스트</Title>
+			</Header>
 		</Container>
 	);
 }
