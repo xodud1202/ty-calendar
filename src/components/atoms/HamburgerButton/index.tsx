@@ -22,8 +22,7 @@ const Line = styled.div`
 		top: 20%;
 	}
 
-	&:nth-child(2),
-	&:nth-child(3) {
+	&:not(:first-child):not(:last-child) {
 		top: 45%;
 	}
 
