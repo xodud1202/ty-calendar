@@ -15,7 +15,7 @@ const Line = styled.div`
 	position: absolute;
 	left: 10%;
 	transition:
-		transform 0.3s ease-in-out,
+		transform 0.35s ease-in-out,
 		opacity 0.3s ease-in-out;
 
 	&:first-child {
