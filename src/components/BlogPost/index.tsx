@@ -1,11 +1,13 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Container = styled.div`
 	background-color: white;
 	padding: 20px;
 	margin: 20px;
 	border-radius: 10px;
-	box-shadow: 10px 10px 30px #d9d9d9, -10px -10px 30px white;
+	box-shadow:
+		10px 10px 30px #d9d9d9,
+		-10px -10px 30px white;
 	max-width: 80vw;
 `;
 
@@ -27,11 +29,11 @@ interface Props {
 	readonly body: string;
 }
 
-export const BlogPost = ({title, body}: Props) => {
+export const BlogPost = ({ title, body }: Props) => {
 	return (
 		<Container>
 			<Title>{title}</Title>
-			<Body dangerouslySetInnerHTML={{__html: body}} />
+			<Body dangerouslySetInnerHTML={{ __html: body }} />
 		</Container>
-	)
-}
+	);
+};

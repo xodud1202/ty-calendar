@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import {Header} from "components/Header";
-import {BlogPost} from "components/BlogPost";
-import {useEffect, useState} from "react";
-import {Button} from "./components/Button";
-import {Form} from "./components/Form";
+import { Header } from 'components/Header';
+import { BlogPost } from 'components/BlogPost';
+import { useEffect, useState } from 'react';
+import { Button } from './components/Button';
+import { Form } from './components/Form';
 
 const Container = styled.div`
 	height: 100vh;
@@ -32,22 +32,22 @@ function App() {
 
 	useEffect(() => {
 		// fetch("https://jsonplaceholder.typicode.com/posts")
-		fetch("https://kotlin.xodud1202.kro.kr/board/boards")
-			.then(response => response.json())
-			.then(result => setPosts(result))
-			.catch(error => alert(error));
+		fetch('https://kotlin.xodud1202.kro.kr/board/boards')
+			.then((response) => response.json())
+			.then((result) => setPosts(result))
+			.catch((error) => alert(error));
 	}, []);
 
 	return (
 		<Container>
 			<Header />
-			{posts.map(post => (
-					<BlogPost key={post.boardNo} title={post.title} body={post.content} />
+			{posts.map((post) => (
+				<BlogPost key={post.boardNo} title={post.title} body={post.content} />
 			))}
 			<ButtonContainer>
-				<Button label={"등록"} color={"gray"} onClick={() => setShowForm(true)} />
+				<Button label={'등록'} color={'gray'} onClick={() => setShowForm(true)} />
 			</ButtonContainer>
-			{showForm && <Form onClose={() => setShowForm(false)}/>}
+			{showForm && <Form onClose={() => setShowForm(false)} />}
 		</Container>
 	);
 }

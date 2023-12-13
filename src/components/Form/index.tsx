@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import {Button} from "../Button";
-import {useState} from "react";
+import styled from '@emotion/styled';
+import { Button } from '../Button';
+import { useState } from 'react';
 
 const Container = styled.div`
 	position: absolute;
@@ -62,31 +62,31 @@ interface Props {
 	readonly onClose?: () => void;
 }
 
-export const Form = ({onClose}: Props) => {
-	const [title, setTitle] = useState("");
-	const [body, setBody] = useState("");
+export const Form = ({ onClose }: Props) => {
+	const [title, setTitle] = useState('');
+	const [body, setBody] = useState('');
 
 	const registerPost = () => {
-		if(title === '' || body === '') return;
+		if (title === '' || body === '') return;
 
-		fetch("https://jsonplaceholder.typicode.com/posts", {
-			method: "POST",
+		fetch('https://jsonplaceholder.typicode.com/posts', {
+			method: 'POST',
 			body: JSON.stringify({
 				userId: 1,
 				title,
 				body,
 			}),
 			headers: {
-				"content-type" : "application/json; charset=UTF-8",
+				'content-type': 'application/json; charset=UTF-8',
 			},
 		})
-			.then(response => response.json())
-			.then(result => {
+			.then((response) => response.json())
+			.then((result) => {
 				console.log(result);
-				if(typeof onClose === "function") onClose();
+				if (typeof onClose === 'function') onClose();
 			})
-			.catch(error => alert(error));
-	}
+			.catch((error) => alert(error));
+	};
 
 	return (
 		<Container>
@@ -102,10 +102,10 @@ export const Form = ({onClose}: Props) => {
 					<Input value={body} onChange={(e) => setBody(e.target.value)} />
 				</InputGroup>
 				<Actions>
-					<Button label={"등록 하기"} onClick={registerPost} />
-					<Button label={"닫기"} color={"#304FFE"} onClick={onClose} />
+					<Button label={'등록 하기'} onClick={registerPost} />
+					<Button label={'닫기'} color={'#304FFE'} onClick={onClose} />
 				</Actions>
 			</Contents>
 		</Container>
-	)
-}
+	);
+};

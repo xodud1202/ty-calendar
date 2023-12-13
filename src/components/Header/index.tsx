@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Container = styled.div`
 	background-color: white;
@@ -18,5 +18,5 @@ export const Header = () => {
 		<Container>
 			<Title>블로그 포스트</Title>
 		</Container>
-	)
-}
+	);
+};
