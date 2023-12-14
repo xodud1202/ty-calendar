@@ -15,14 +15,8 @@ const HeaderWrapper = styled.div`
 	}
 `;
 
-const AddButtonDiv = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
-
 const HamburgerButtonWrapper = styled.div`
-	width: 5vh; // HeaderWrapper의 height와 동일하게 움직일것.
+	width: 2rem;
 `;
 
 export const Header = () => {
@@ -32,9 +26,7 @@ export const Header = () => {
 				<HamburgerButton />
 			</HamburgerButtonWrapper>
 			<HeaderDate />
-			<AddButtonDiv>
-				<TextSpan text={'+'} fontSize={'3.0rem'}></TextSpan>
-			</AddButtonDiv>
+			<TextSpan text={'+'} fontSize={'3.0rem'}></TextSpan>
 		</HeaderWrapper>
 	);
 };
