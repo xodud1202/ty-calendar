@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 // interface headerDateCss {
 // 	readonly fontSize: string;
@@ -22,17 +22,21 @@ interface Props {
 	readonly backgroundColor?: string;
 }
 
-export const TextSpan = ({  text,
-							fontSize,
-							fontWeight = 'normal',
-							fontColor = '#aaaaaa',
-							backgroundColor='unset'}:Props) => {
+export const TextSpan = ({
+	text,
+	fontSize,
+	fontWeight = 'normal',
+	fontColor = '#aaaaaa',
+	backgroundColor = 'unset',
+}: Props) => {
 	return (
-		<Container  fontSize        = {fontSize}
-					fontWeight      = {fontWeight}
-					fontColor       = {fontColor}
-					backgroundColor = {backgroundColor}>
+		<Container
+			fontSize={fontSize}
+			fontWeight={fontWeight}
+			fontColor={fontColor}
+			backgroundColor={backgroundColor}
+		>
 			{text}
 		</Container>
 	);
-}
+};

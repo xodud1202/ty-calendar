@@ -1,5 +1,5 @@
-import {HeaderDate} from ".";
-import {Meta, StoryObj} from "@storybook/react";
+import { HeaderDate } from '.';
+import { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
 	title: 'Organisms/HeaderDate',
