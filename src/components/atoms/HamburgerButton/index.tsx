@@ -5,6 +5,7 @@ const HamburgerWrapper = styled.div`
 	width: 100%;
 	height: 0;
 	padding-bottom: 100%; // This keeps aspect-ratio of 1:1
+	cursor: pointer;
 	position: relative;
 `;
 
@@ -15,8 +16,8 @@ const Line = styled.div`
 	position: absolute;
 	left: 10%;
 	transition:
-		transform 0.35s ease-in-out,
-		opacity 0.3s ease-in-out;
+		transform 0.3s ease-in-out,
+		opacity 0.4s ease-in-out;
 
 	&:first-child {
 		top: 20%;
