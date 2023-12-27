@@ -3,6 +3,10 @@ import styled from '@emotion/styled';
 
 const Container = styled.div`
 	text-align: left;
+	
+	span {
+		display: block;
+	}
 `;
 
 export const HeaderDate = () => {
@@ -15,9 +19,8 @@ export const HeaderDate = () => {
 
 	return (
 		<Container>
-			<TextSpan text={displayDate} fontSize={'1.2rem'} fontColor={'black'} fontWeight={'bold'} />
-			<br />
-			<TextSpan text={displayDate} fontSize={'1.0rem'} fontColor={'#cccccc'} />
+			<TextSpan text={displayDate} fontSize={'1.0rem'} fontColor={'black'} fontWeight={'bold'} />
+			<TextSpan text={displayDate} fontSize={'0.9rem'} fontColor={'#cccccc'} />
 		</Container>
 	);
 };
